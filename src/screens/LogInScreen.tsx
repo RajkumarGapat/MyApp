@@ -1,5 +1,4 @@
-// src/screens/LogInScreen.tsx
-
+// src/screens/LoginScreen.tsx
 import React, { useState } from 'react';
 import {
   View,
@@ -8,109 +7,95 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
-  StatusBar,
 } from 'react-native';
+import axios from 'axios';
+import { GET_LOGIN_API } from '../api/api'; 
 
-const LogInScreen: React.FC = () => {
+const LoginScreen = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (!username || !password) {
-      Alert.alert('Error', 'Please fill in both fields');
+      Alert.alert('Error', 'Please enter both username and password');
       return;
     }
 
-    // Fake login API call (using setTimeout here)
-    setTimeout(() => {
-      Alert.alert('Success', `Welcome, ${username}`);
-    }, 1000);
+    try {
+      const response = await axios.post(GET_LOGIN_API, {
+        username,
+        password,
+      });
+
+      Alert.alert('Success', `Logged in! Fake ID: ${response.data.id}`);
+    } catch (error) {
+      Alert.alert('Login Failed', 'Something went wrong.');
+    }
   };
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#121212" />
-      <Text style={styles.title}>Login</Text>
-
-      <Text style={styles.label}>Username</Text>
+      <Text style={styles.title}>Welcome Back</Text>
       <TextInput
-        placeholder="Enter your username"
+        placeholder="Username"
         placeholderTextColor="#aaa"
+        style={styles.input}
         value={username}
         onChangeText={setUsername}
-        style={styles.input}
       />
-
-      <Text style={styles.label}>Password</Text>
-      <View style={styles.passwordContainer}>
-        <TextInput
-          placeholder="Enter your password"
-          placeholderTextColor="#aaa"
-          value={password}
-          onChangeText={setPassword}
-          secureTextEntry={!showPassword}
-          style={[styles.input, { flex: 1 }]}
-        />
-        <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-          <Text style={styles.toggle}>{showPassword ? 'Hide' : 'Show'}</Text>
-        </TouchableOpacity>
-      </View>
-
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+      <TextInput
+        placeholder="Password"
+        placeholderTextColor="#aaa"
+        secureTextEntry
+        style={styles.input}
+        value={password}
+        onChangeText={setPassword}
+      />
+      <TouchableOpacity onPress={handleLogin} style={styles.button}>
         <Text style={styles.buttonText}>Log In</Text>
       </TouchableOpacity>
     </View>
   );
 };
 
-export default LogInScreen;
+export default LoginScreen;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#121212',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#121212',
+    paddingHorizontal: 24,
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
+    color: '#fff',
+    marginBottom: 32,
     fontWeight: 'bold',
-    marginBottom: 20,
-    color: '#FFFFFF',
-  },
-  label: {
-    fontSize: 16,
-    marginBottom: 5,
-    color: '#FFFFFF',
   },
   input: {
-    width: '80%',
-    height: 40,
-    marginBottom: 10,
-    backgroundColor: '#2C2C2C',
-    borderRadius: 5,
-    paddingHorizontal: 10,
-    color: '#FFFFFF',
-  },
-  passwordContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  toggle: {
-    color: '#FFFFFF',
-    marginLeft: 10,
+    width: '100%',
+    height: 50,
+    backgroundColor: '#1e1e1e',
+    color: '#fff',
+    paddingHorizontal: 16,
+    borderRadius: 10,
+    marginBottom: 20,
+    borderWidth: 1,
+    borderColor: '#333',
   },
   button: {
-    backgroundColor: '#BB86FC',
-    borderRadius: 5,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    backgroundColor: '#bb86fc',
+    paddingVertical: 14,
+    paddingHorizontal: 32,
+    borderRadius: 10,
+    width: '100%',
+    alignItems: 'center',
   },
   buttonText: {
-    color: '#FFFFFF',
+    color: '#000',
     fontSize: 16,
-    fontWeight: 'bold',
-  }
+    fontWeight: '600',
+  },
 });
