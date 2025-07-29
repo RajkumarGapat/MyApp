@@ -9,7 +9,7 @@ import {
   Alert,
 } from 'react-native';
 import axios from 'axios';
-import { GET_LOGIN_API } from '../api/api'; 
+//import { GET_LOGIN_API } from '../api/api'; 
 
 const LoginScreen = () => {
   const [username, setUsername] = useState('');

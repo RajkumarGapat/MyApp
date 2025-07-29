@@ -14,4 +14,4 @@ export const loginApi = async (username: string, password: string) => {
     }
 };
 
-export default GET_LOGIN_API;
+export default loginApi;
