@@ -6,6 +6,8 @@ import FlatListDemo from './src/screens/FlatListDemo';
 import ImageFile from './src/screens/Images';
 import OurButton from './src/screens/OurButton';
 import NetflixCard from './src/components/NetflixCard';
+import DemoStyles from './src/screens/DemoStyles';
+import ChallengeFlatList from './src/screens/ChallengeFlatList';
 
 
 const App = () => {
@@ -19,7 +21,9 @@ const App = () => {
       {/* <Images/> */}
       {/* <OurButton /> */}
       {/* <ImageFile/> */}
-      <NetflixCard/>
+      {/* <NetflixCard/> */}
+      <DemoStyles/>
+      {/* <ChallengeFlatList/> */}
     </View>
   );
 };

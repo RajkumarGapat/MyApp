@@ -4,7 +4,7 @@ import { View, Text, Image, StyleSheet, Button, Linking } from 'react-native';
 const NetflixCard = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>NetflixCard</Text>
+      <Text style={styles.header}>Netflix Card</Text>
       <View style={styles.poster}>
         <Image
           style={styles.imgStyle}
@@ -36,9 +36,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+
   header: {
     fontSize: 30,
     marginBottom: 20,
+    fontFamily: "josefin-sans",
+    color: 'red',
+    fontVariant: ['small-caps'],
   },
   poster: {
     width: 250,
@@ -52,11 +56,20 @@ const styles = StyleSheet.create({
   poster__title: {
     fontSize: 20,
     marginBottom: 10,
+    color: 'red',
+    letterSpacing: 1,
+    textShadowOffset: { width: -3, height: 4 },
+    textShadowRadius: 10,
+    textShadowColor: 'gray',
+    //textTransform: 'uppercase',
   },
   poster__text: {
     color: '#999',
     paddingHorizontal: 20,
     marginBottom: 10,
+    letterSpacing: 0.4,
+    lineHeight: 20,
+    textAlign: 'justify',
   },
   imgStyle: {
     width: '100%',
