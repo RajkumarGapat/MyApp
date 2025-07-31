@@ -8,8 +8,9 @@ import OurButton from './src/screens/OurButton';
 import NetflixCard from './src/components/NetflixCard';
 import DemoStyles from './src/screens/DemoStyles';
 import ChallengeFlatList from './src/screens/ChallengeFlatList';
-
-
+import CounterNumber from './src/screens/CounterNumber';
+import ColorGenerator from './src/screens/ColorGenerator';
+import HookEffect from './src/screens/HookEffect';
 const App = () => {
   //const myName = 'Raj';
   return (
@@ -22,8 +23,11 @@ const App = () => {
       {/* <OurButton /> */}
       {/* <ImageFile/> */}
       {/* <NetflixCard/> */}
-      <DemoStyles/>
+      {/* <DemoStyles/> */}
       {/* <ChallengeFlatList/> */}
+      {/* <CounterNumber/> */}
+      {/* <ColorGenerator/> */}
+      <HookEffect/>
     </View>
   );
 };
