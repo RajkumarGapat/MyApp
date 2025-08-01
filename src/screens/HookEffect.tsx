@@ -48,7 +48,7 @@ const HookEffect = () => {
               <View>
                 <View style={styles.bioDataContainer}>
                   <Text style={styles.bioData}> Bio-Data </Text>
-                  <Text style={styles.idNumber}> {item.id < 10 ? `#0${item.id}` : `#${item.id}}` }</Text>
+                  <Text style={styles.idNumber}> {item.id < 10 ? `#0${item.id}` : `#${item.id}` }</Text>
                 </View>
 
                 <View style={styles.card}>

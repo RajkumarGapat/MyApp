@@ -11,6 +11,7 @@ import ChallengeFlatList from './src/screens/ChallengeFlatList';
 import CounterNumber from './src/screens/CounterNumber';
 import ColorGenerator from './src/screens/ColorGenerator';
 import HookEffect from './src/screens/HookEffect';
+import ContactUs from './src/screens/ContactUs';
 const App = () => {
   //const myName = 'Raj';
   return (
@@ -27,7 +28,8 @@ const App = () => {
       {/* <ChallengeFlatList/> */}
       {/* <CounterNumber/> */}
       {/* <ColorGenerator/> */}
-      <HookEffect/>
+      {/* <HookEffect/> */}
+      <ContactUs/>
     </View>
   );
 };
