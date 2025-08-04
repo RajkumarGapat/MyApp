@@ -10,7 +10,7 @@ import {
 import CheckBox from '@react-native-community/checkbox';
 
 
-const ContactUs = () => {
+const ContactUs = ({navigation}) => {
 
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
@@ -21,6 +21,7 @@ const ContactUs = () => {
     //return Alert.alert(userName, password);
     if(userName === "Raj" && password === "1234"){
         Alert.alert("Welcome " + userName);
+        navigation.navigate("Home", {myName : `${userName}`});
     }else{
         Alert.alert("Invalid User");
     }
